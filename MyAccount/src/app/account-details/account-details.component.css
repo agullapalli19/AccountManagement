@@ -1,0 +1,40 @@
+         body {
+             /* background-color: #f8f9fa; */
+             height: 100vh;
+             padding: 0px 20px;
+             margin: 0;
+
+         }
+
+         .mainSection {
+             display: flex;
+             justify-content: space-evenly;
+             /* align-items: center; */
+             margin-top: 10px;
+         }
+
+         .card {
+             border: 1px solid;
+             border-radius: 20px;
+             box-shadow: 5px 5px 5px lightblue;
+         }
+
+         .error-section {
+             display: flex;
+             justify-content: center;
+         }
+
+         .errorMsg {
+             color: red;
+             font-size: 14px;
+         }
+
+         .successMsg {
+             color: green;
+             font-size: 14px;
+         }
+
+         .formFooter {
+             display: flex;
+             justify-content: flex-end;
+         }
