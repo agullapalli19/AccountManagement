@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Lab1\\AccountManagement\\AccountManagement.csproj": {}
+    "C:\\Users\\agullapalli\\source\\repos\\AccountManagement\\AccountManagement\\AccountManagement.csproj": {}
   },
   "projects": {
-    "C:\\Lab1\\AccountManagement\\AccountManagement.csproj": {
+    "C:\\Users\\agullapalli\\source\\repos\\AccountManagement\\AccountManagement\\AccountManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Lab1\\AccountManagement\\AccountManagement.csproj",
+        "projectUniqueName": "C:\\Users\\agullapalli\\source\\repos\\AccountManagement\\AccountManagement\\AccountManagement.csproj",
         "projectName": "AccountManagement",
-        "projectPath": "C:\\Lab1\\AccountManagement\\AccountManagement.csproj",
-        "packagesPath": "C:\\Users\\KranthiPolasa\\.nuget\\packages\\",
-        "outputPath": "C:\\Lab1\\AccountManagement\\obj\\",
+        "projectPath": "C:\\Users\\agullapalli\\source\\repos\\AccountManagement\\AccountManagement\\AccountManagement.csproj",
+        "packagesPath": "C:\\Users\\agullapalli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\agullapalli\\source\\repos\\AccountManagement\\AccountManagement\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\KranthiPolasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\agullapalli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,21 +50,25 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.32, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[7.0.20, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[7.0.20, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[7.0.20, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -86,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
