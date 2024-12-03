@@ -1,0 +1,117 @@
+<body>
+    <div class="error-section">
+        <div class="errorMsg" *ngIf="errorMessage">{{errorMessage}}</div>
+        <div class="successMsg" *ngIf="successMessage">{{successMessage}}</div>
+    </div>
+
+    <div class="row mainSection">
+        <div class="card col-5">
+            <h3 class="card-header">Account Summary</h3>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h5>Account Holder</h5>
+                        <p><strong>{{UserDetails?.givenName}}</strong></p>
+                    </div>
+                    <div class="col-md-6 text-md-right">
+                        <h5>Account Number</h5>
+                        <p><strong>{{account?.accountNumber}}</strong></p>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h5>Available Balance</h5>
+                        <p class="display-4"><strong>$ {{account?.balance}}</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card col-5">
+            <h3 class="card-header">Transfer Details</h3>
+            <div class="card-body">
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="moneyTransferFrm">
+                    <div class="form-group">
+                        <label for="sourceAccountNumber">Account Number</label>
+                        <input id="sourceAccountNumber" class="form-control" formControlName="sourceAccountNumber"
+                            placeholder={{account?.accountNumber}} [disabled]="true">
+                        <div class="errorMsg"
+                            *ngIf="myForm.get('sourceAccountNumber')?.invalid && myForm.get('sourceAccountNumber')?.touched">
+                            <div *ngIf="myForm.get('sourceAccountNumber')?.errors?.['required']">Account Number is
+                                required.</div>
+                            <div *ngIf="myForm.get('sourceAccountNumber')?.errors?.['minlength']">Minimum 8
+                                charcaters.</div>
+                            <div *ngIf="myForm.get('sourceAccountNumber')?.errors?.['maxlength']">Maximum 16
+                                charcaters.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destinationAccountNumber">Destination Account Number *</label>
+                        <input id="destinationAccountNumber" class="form-control"
+                            formControlName="destinationAccountNumber" placeholder="Enter destination account number">
+                        <div class="errorMsg"
+                            *ngIf="myForm.get('destinationAccountNumber')?.invalid && myForm.get('destinationAccountNumber')?.touched">
+                            <div *ngIf="myForm.get('destinationAccountNumber')?.errors?.['required']">Account Number
+                                is required.
+                            </div>
+                            <div *ngIf="myForm.get('destinationAccountNumber')?.errors?.['minlength']">Minimum 8
+                                charcaters.</div>
+                            <div *ngIf="myForm.get('destinationAccountNumber')?.errors?.['maxlength']">Maximum 16
+                                charcaters.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="destinationAccountNumber2">Re-Enter Destination Account Number *</label>
+                        <input id="destinationAccountNumber2" class="form-control"
+                            formControlName="destinationAccountNumber2"
+                            placeholder="Re-Enter destination account number">
+                        <div class="errorMsg"
+                            *ngIf="myForm.get('destinationAccountNumber2')?.errors?.['required'] && myForm.get('destinationAccountNumber2')?.touched">
+                            Account Number is
+                            required.
+                        </div>
+                        <div class="errorMsg" *ngIf="myForm.errors?.['destinationMismatch'];">Account Number does
+                            not match.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amountTotransfer">Amount to Transfer *</label>
+                        <input id="amountTotransfer" class="form-control" formControlName="amountTotransfer"
+                            type="number" placeholder="Enter amount (e.g., 100.00)">
+                        <div class="errorMsg"
+                            *ngIf="myForm.get('amountTotransfer')?.invalid && myForm.get('amountTotransfer')?.touched">
+                            <div *ngIf="myForm.get('amountTotransfer')?.errors?.['required']">Enter valid Amount.
+                            </div>
+                            <div *ngIf="myForm.get('amountTotransfer')?.errors?.['min']">Minimum Amount is 1.</div>
+                            <!-- <div *ngIf="myForm.get('amountTotransfer')?.errors?.['negative']">Invalid Amount.</div> -->
+                        </div>
+                        <div class="errorMsg" *ngIf="myForm.errors?.['insufficientBalance'];">Insufficient balance
+                            to make this transaction</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transactionDescription">Transactions Description</label>
+                        <input id="transactionDescription" class="form-control" formControlName="transactionDescription"
+                            placeholder="Optinal, Enter description">
+                        <!-- <div *ngIf="myForm.get('transactionDescription')?.invalid && (myForm.get('transactionDescription')?.touched || myForm.get('transactionDescription')?.dirty)">
+                            <div *ngIf="myForm.get('transactionDescription').errors.min">Age must be at least 18.</div>
+                        </div> -->
+                    </div>
+                    <div class="formFooter">
+                        <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Transfer</button>
+                        &nbsp;&nbsp;
+                        <button type="button" class="btn btn-light">Cancel</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
